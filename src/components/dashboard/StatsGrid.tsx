@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Package, Warehouse, AlertTriangle, TrendingUp, DollarSign, ShoppingCart } from 'lucide-react';
+import { Package, Warehouse, AlertTriangle, TrendingUp, DollarSign, ShoppingCart, Archive } from 'lucide-react';
 import { useWarehouseStore } from '@/store/warehouseStore';
 
 export function StatsGrid() {
