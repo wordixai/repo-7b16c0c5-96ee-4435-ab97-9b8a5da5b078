@@ -35,7 +35,7 @@ const menuItems = [
       },
       {
         title: "Analytics",
-        url: "/analytics",
+        url: "#",
         icon: TrendingUp,
       },
     ],
@@ -45,17 +45,17 @@ const menuItems = [
     items: [
       {
         title: "Products",
-        url: "/products",
+        url: "#",
         icon: Package,
       },
       {
         title: "Stock Levels",
-        url: "/inventory",
+        url: "#",
         icon: Archive,
       },
       {
         title: "Stock Alerts",
-        url: "/alerts",
+        url: "#",
         icon: AlertTriangle,
       },
     ],
@@ -65,17 +65,17 @@ const menuItems = [
     items: [
       {
         title: "Orders",
-        url: "/orders",
+        url: "#",
         icon: ShoppingCart,
       },
       {
         title: "Warehouses",
-        url: "/warehouses",
+        url: "#",
         icon: Warehouse,
       },
       {
         title: "Locations",
-        url: "/locations",
+        url: "#",
         icon: MapPin,
       },
     ],
@@ -85,12 +85,12 @@ const menuItems = [
     items: [
       {
         title: "Users",
-        url: "/users",
+        url: "#",
         icon: Users,
       },
       {
         title: "Settings",
-        url: "/settings",
+        url: "#",
         icon: Settings,
       },
     ],
@@ -98,6 +98,15 @@ const menuItems = [
 ];
 
 export function AppSidebar() {
+  const handleNavigation = (url: string) => {
+    if (url === "#") {
+      // For demo purposes, show a message instead of navigating
+      console.log("Feature coming soon!");
+      return;
+    }
+    // For the dashboard route, we don't need to do anything as it's the current page
+  };
+
   return (
     <Sidebar>
       <SidebarHeader>
@@ -120,11 +129,12 @@ export function AppSidebar() {
               <SidebarMenu>
                 {group.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild>
-                      <a href={item.url}>
-                        <item.icon />
-                        <span>{item.title}</span>
-                      </a>
+                    <SidebarMenuButton 
+                      onClick={() => handleNavigation(item.url)}
+                      className={item.url === "/" ? "bg-sidebar-accent text-sidebar-accent-foreground" : ""}
+                    >
+                      <item.icon />
+                      <span>{item.title}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
